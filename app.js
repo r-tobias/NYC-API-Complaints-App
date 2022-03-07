@@ -1,7 +1,5 @@
 BASE_URL = "https://data.cityofnewyork.us/resource/erm2-nwe9.json?";
 const complaintsDiv = document.getElementById("complaints-div");
-complaintsDiv.className = "complaintsDiv"
-
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach(button => {
@@ -12,7 +10,7 @@ buttons.forEach(button => {
         try {
             let response = await axios.get(`${BASE_URL}borough=${boroughName}&agency=NYPD`);
             let allData = response.data;
-            // console.log(response.data)
+            // console.log(allData)
             if (numComplaints == "" || numComplaints == 0 || isNaN(numComplaints)) {
                 numComplaints = 10;
             }
@@ -34,7 +32,6 @@ const renderList = (arr, n) => {
         viewMoreButton.className = "viewMoreButton"
         viewMoreButton.textContent = "WHAT DID THE POLICE DO?"
         let infoDiv = document.createElement("div")
-        infoDiv.innerHTML = "";
 
         newP.appendChild(viewMoreButton);
         complaintsDiv.appendChild(newP)
